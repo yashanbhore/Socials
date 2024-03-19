@@ -16,9 +16,9 @@ const SuggestedUsers = () => {
 				</Text>
 			</Flex>
 
-			<SuggestedUser name='Dan Abrahmov' followers={1392} avatar='https://bit.ly/dan-abramov' />
-			<SuggestedUser name='Ryan Florence	' followers={567} avatar='https://bit.ly/ryan-florence' />
-			<SuggestedUser name='Christian Nwamba' followers={759} avatar='https://bit.ly/code-beast' />
+			<SuggestedUser name='Baburao' followers={1392} avatar='S1.png' />
+			<SuggestedUser name='Ganpatrao' followers={567} avatar='S1.png' />
+			<SuggestedUser name='Apte' followers={759} avatar='S1.png' />
 
 			
 		</VStack>

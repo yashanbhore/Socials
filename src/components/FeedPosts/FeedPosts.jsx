@@ -47,8 +47,8 @@ A loading placeholder for the main content of the post, represented by a Box wit
 
           {/* we are passing this props - (img,name,avata-img)  to FeedPost */}
 
-					<FeedPost img='/img1.png' username='burakorkmezz' avatar='/img1.png' />
-					<FeedPost img='/img2.png' username='josh' avatar='/img2.png' />
+					<FeedPost img='/Post1.png' username='burakorkmezz' avatar='/img1.png' />
+					<FeedPost img='/p1.png' username='josh' avatar='/img2.png' />
 					<FeedPost img='/img3.png' username='janedoe' avatar='/img3.png' />
 					<FeedPost img='/img4.png' username='johndoe' avatar='/img4.png' />
 				</>
