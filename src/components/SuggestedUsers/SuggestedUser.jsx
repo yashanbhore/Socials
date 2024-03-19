@@ -26,7 +26,7 @@ const SuggestedUser = ({ followers, name, avatar }) => {
 				color={"blue.400"}
 				cursor={"pointer"}
 				_hover={{ color: "white" }}
-				onClick={() => setIsFollowed(!isFollowed)}
+				onClick={() => setIsFollowed(!isFollowed)}  // ! is negation operation (if true make it false vice versa)
 			>
 				{isFollowed ? "Unfollow" : "Follow"}
 			</Button>

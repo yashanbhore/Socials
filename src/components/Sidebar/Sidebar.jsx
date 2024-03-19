@@ -48,7 +48,7 @@ const Sidebar = () => {
     left={0}
     px={{ base: 2, md: 4 }}
   >
-    <Flex direction={"column"} gap={10} w='full' height={"full"}>
+    <Flex direction={"column"} gap={10} w='full'  height={"full"}>
       <Link to={"/"} as={RouterLink} pl={2} display={{ base: "none", md: "block" }} cursor='pointer'>
         <Text fontSize={40} fontFamily={"Billbong"} >
           Socials
@@ -66,7 +66,9 @@ const Sidebar = () => {
         w={10}
         cursor='pointer'
       >
-        <SocialsMobileLogo />
+        <Text fontSize={40} pl={0.7} fontFamily={"Billbong"} color={"white.700"} >
+          S
+        </Text>
       </Link>
       <Flex direction={"column"} gap={5} cursor={"pointer"}>
         {sidebarItems.map((item, index) => (
