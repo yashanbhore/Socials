@@ -1,7 +1,8 @@
-import { Avatar, Box, Flex,Link, Tooltip} from '@chakra-ui/react'
+import { Avatar, Box, Flex,Link,Text, Tooltip} from '@chakra-ui/react'
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
-import { CreatePostLogo, NotificationsLogo, SearchLogo, SocialsLogo, SocialsMobileLogo } from '../../../assets/constant'
+import { CreatePostLogo, NotificationsLogo, SearchLogo, SocialsLogo, SocialsMobileLogo } from '../../assets/constant'
+
 import {AiFillHome} from "react-icons/ai"
 
 import { BiLogOut } from "react-icons/bi";
@@ -49,7 +50,9 @@ const Sidebar = () => {
   >
     <Flex direction={"column"} gap={10} w='full' height={"full"}>
       <Link to={"/"} as={RouterLink} pl={2} display={{ base: "none", md: "block" }} cursor='pointer'>
-        <SocialsLogo />
+        <Text fontSize={40} fontFamily={"Billbong"} >
+          Socials
+        </Text>
       </Link>
       <Link
         to={"/"}
