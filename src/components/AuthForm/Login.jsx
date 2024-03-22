@@ -1,6 +1,6 @@
-import { Alert, AlertIcon, Button, Input } from "@chakra-ui/react";
+import { Alert, AlertIcon, Button, Input, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import useLogin from "../../hooks/useLogin";
+// import useLogin from "../../hooks/useLogin";
 
 const Login = () => {
 	const [inputs, setInputs] = useState({
@@ -9,6 +9,9 @@ const Login = () => {
 	});
 	return (
 		<>
+		<Text fontSize={60} fontFamily={"Billbong"} >
+          Socials
+        </Text>
 			<Input
 				placeholder='Email'
 				fontSize={14}
