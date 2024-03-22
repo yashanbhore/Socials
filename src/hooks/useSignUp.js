@@ -26,15 +26,18 @@ const useSignUp = () => {
 			return;
 		}
 
-		// const usersRef = collection(firestore, "users");
 
-		// const q = query(usersRef, where("username", "==", inputs.username));
-		// const querySnapshot = await getDocs(q);
+		// to check whether the username already exist
 
-		// if (!querySnapshot.empty) {
-		// 	Alert("Error", "Username already exists", "error");
-		// 	return;
-		// }
+		const usersRef = collection(firestore, "users");
+
+		const q = query(usersRef, where("username", "==", inputs.username));
+		const querySnapshot = await getDocs(q);
+
+		if (!querySnapshot.empty) {
+			showToast("Error", "Username already exists", "error");
+			return;
+		}
 
 		try {
 			const newUser = await createUserWithEmailAndPassword(inputs.email, inputs.password);
