@@ -2,16 +2,18 @@ import { Avatar, AvatarGroup, Button, Flex, Text, VStack, useDisclosure } from "
 import useUserProfileStore from "../../store/userProfileStore";
 import useAuthStore from "../../store/authStore";
 import EditProfile from "./EditProfile";
+import useFollowUser from "../../hooks/useFollowUser";
 
 const ProfileHeader = () => {
 	const { userProfile } = useUserProfileStore();
-	const authuser = useAuthStore(state => state.user); 
+	const authUser = useAuthStore((state) => state.user);
+	const { isFollowing, isUpdating, handleFollowUser } = useFollowUser(userProfile?.uid);
 
 	const { isOpen, onOpen, onClose } = useDisclosure();
-
-
-	const visitingOwnProfileAndAuth = authuser && authuser.username == userProfile.username; // Own profile
-	const visitingAnotherProfileAndAuth = authuser && authuser.username !== userProfile.username; // Another Profile
+	
+	
+	const visitingOwnProfileAndAuth = authUser && authUser.username === userProfile.username;
+	const visitingAnotherProfileAndAuth = authUser && authUser.username !== userProfile.username;
 
 	return (
 		<Flex gap={{ base: 4, sm: 10 }} py={10} direction={{ base: "column", sm: "row" }}>
@@ -28,12 +30,6 @@ const ProfileHeader = () => {
 					w={"full"}
 				>
 					<Text fontSize={{ base: "sm", md: "lg" }}>{userProfile.username}</Text>
-
-					{/* This is a conditional rendering statement in JSX. 
-						if the visitingOwnProfileAndAuth variable evaluates to true. 
-						If it does, the code inside the parentheses will be rendered; 
-						otherwise, nothing will be rendered */}
-
 					{visitingOwnProfileAndAuth && (
 						<Flex gap={4} alignItems={"center"} justifyContent={"center"}>
 							<Button
@@ -47,7 +43,6 @@ const ProfileHeader = () => {
 							</Button>
 						</Flex>
 					)}
-
 					{visitingAnotherProfileAndAuth && (
 						<Flex gap={4} alignItems={"center"} justifyContent={"center"}>
 							<Button
@@ -55,11 +50,10 @@ const ProfileHeader = () => {
 								color={"white"}
 								_hover={{ bg: "blue.600" }}
 								size={{ base: "xs", md: "sm" }}
-								// onClick={handleFollowUser}
-								// isLoading={isUpdating}
+								onClick={handleFollowUser}
+								isLoading={isUpdating}
 							>
-								Follow
-								{/* {isFollowing ? "Unfollow" : "Follow"} */}
+								{isFollowing ? "Unfollow" : "Follow"}
 							</Button>
 						</Flex>
 					)}
@@ -92,9 +86,7 @@ const ProfileHeader = () => {
 				</Flex>
 				<Text fontSize={"sm"}>{userProfile.bio}</Text>
 			</VStack>
-
 			{isOpen && <EditProfile isOpen={isOpen} onClose={onClose} />}
-
 		</Flex>
 	);
 };
