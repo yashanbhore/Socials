@@ -6,17 +6,21 @@ import useAuthStore from "../../store/authStore";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const GoogleAuth = ({ prefix }) => {
-	const [signInWithGoogle, , , error] = useSignInWithGoogle(auth);
+	const [signInWithGoogle,  error] = useSignInWithGoogle(auth);
 	const showToast = useShowToast();
 	const loginUser = useAuthStore((state) => state.login);
 
 	const handleGoogleAuth = async () => {
 		try {
+
+			//creating newUser when clicking on signin with google
 			const newUser = await signInWithGoogle();
 			if (!newUser && error) {
 				showToast("Error", error.message, "error");
 				return;
 			}
+			
+			// checking if the user exist in firestore db if so login else create new entry
 			const userRef = doc(firestore, "users", newUser.user.uid);
 			const userSnap = await getDoc(userRef);
 
