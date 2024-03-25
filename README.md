@@ -1,8 +1,8 @@
 # Socials
-#[Socials](https://socials-rust.vercel.app/)
+[Socials](https://socials-rust.vercel.app/)
 
-This project is a social media web application built using React, Firebase, Zustand, and Chakra UI. 
-It allows users to sign in, log in, create posts, like posts, comment on posts, search for other users, and follow them.
+
+I have created a nice social media web platform using React. 
 
 ## Technologies Used
 
@@ -14,20 +14,20 @@ It allows users to sign in, log in, create posts, like posts, comment on posts, 
 
 - **Chakra UI:** Chakra UI is utilized for the user interface components, providing a collection of accessible and customizable UI components for React applications.
 
-  ##Features
--Login
--Signup
--Create Post
--Like Post
--Unline Post
--Delete Post
--View Profile
--Edit Profile
--Group Chatting
--View Other user profile
--Search User
--Search Post
--Notification
+## Features
+- Login
+- Signup
+- Create Post
+- Like Post
+- Unline Post
+- Delete Post
+- View Profile
+- Edit Profile
+- Group Chatting
+- View Other user profile
+- Search User
+- Search Post
+- Notification
 
 
 
