@@ -19,15 +19,15 @@ I have created a social media web platform using React.
 - Signup
 - Create Post
 - Like Post
-- Unline Post
+- Unlike Post
 - Delete Post
 - View Profile
 - Edit Profile
-- Group Chatting
+- Comment
 - View Other user profile
 - Search User
-- Search Post
-- Notification
+
+
 
 
 
