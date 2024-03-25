@@ -6,8 +6,13 @@ import useAuthStore from '../store/authStore';
 import { doc,getDoc } from 'firebase/firestore';
 
 const useLogin = () => {
+
+
   const showToast=useShowToast();
+  //its a function provided by firebase to signin
   const [signInWithEmailAndPassword,loading,error]=useSignInWithEmailAndPassword(auth);
+
+  //loginUser variable now holds a reference to the login
   const loginUser=useAuthStore((state)=>state.login);
   
   const login=async(inputs)=>{
@@ -15,7 +20,10 @@ const useLogin = () => {
         return showToast("Error","Please fill all fields","error");
     }
     try{
+
             const userCred= await signInWithEmailAndPassword(inputs.email,inputs.password);
+
+            console.log(userCred)
 
             // if userCred exist use firebase to 
 
@@ -34,3 +42,8 @@ const useLogin = () => {
 }
 
 export default useLogin
+
+
+//When we call loginUser(docSnap.data()), 
+// it invokes the login function stored within the Zustand store, passing docSnap.data() as an argument. 
+// This login function updates the state of the store to reflect that a user is logged in.

@@ -5,8 +5,10 @@ import { firestore } from "../firebase/firebase";
 import useUserProfileStore from "../store/userProfileStore";
 
 const useGetUserProfile = (username) => {
+
 	const [isLoading, setIsLoading] = useState(true);
 	const showToast = useShowToast();
+	
 	const { userProfile, setUserProfile } = useUserProfileStore();
 
 	useEffect(() => {

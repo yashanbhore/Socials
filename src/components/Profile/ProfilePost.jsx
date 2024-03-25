@@ -31,10 +31,13 @@ import Caption from "../Comment/Caption";
 
 const ProfilePost = ({ post }) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
+	
 	const userProfile = useUserProfileStore((state) => state.userProfile);
 	const authUser = useAuthStore((state) => state.user);
+	
 	const showToast = useShowToast();
 	const [isDeleting, setIsDeleting] = useState(false);
+	
 	const deletePost = usePostStore((state) => state.deletePost);
 	const decrementPostsCount = useUserProfileStore((state) => state.deletePost);
 
@@ -156,7 +159,7 @@ const ProfilePost = ({ post }) => {
 								<Divider my={4} bg={"gray.500"} />
 
 								<VStack w='full' alignItems={"start"} maxH={"350px"} overflowY={"auto"}>
-									CAPTION
+									{/* CAPTION */}
 									{post.caption && <Caption post={post} />}
 									{/* COMMENTS */}
 									{post.comments.map((comment) => (

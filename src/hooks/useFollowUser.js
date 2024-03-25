@@ -8,16 +8,22 @@ import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
 const useFollowUser = (userId) => {
 	const [isUpdating, setIsUpdating] = useState(false);
 	const [isFollowing, setIsFollowing] = useState(false);
+
 	const authUser = useAuthStore((state) => state.user);
 	const setAuthUser = useAuthStore((state) => state.setUser);
+	
 	const { userProfile, setUserProfile } = useUserProfileStore();
 	const showToast = useShowToast();
 
 	const handleFollowUser = async () => {
 		setIsUpdating(true);
 		try {
+			//Current user
 			const currentUserRef = doc(firestore, "users", authUser.uid);
+			
+			//User whom we want to follow or unfolllow
 			const userToFollowOrUnfollorRef = doc(firestore, "users", userId);
+			
 			await updateDoc(currentUserRef, {
 				following: isFollowing ? arrayRemove(userId) : arrayUnion(userId),
 			});
@@ -36,8 +42,11 @@ const useFollowUser = (userId) => {
 					setUserProfile({
 						...userProfile,
 						followers: userProfile.followers.filter((uid) => uid !== authUser.uid),
+						//This ensures that the current user(I) is removed from the followers list of the user being unfollowed
 					});
 
+
+					// locally update the user-info
 				localStorage.setItem(
 					"user-info",
 					JSON.stringify({

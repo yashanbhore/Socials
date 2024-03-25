@@ -1,7 +1,7 @@
-import { Box, Button, Flex, Link, Tooltip } from "@chakra-ui/react";
+import { Box, Button, Flex, Link, Text, Tooltip } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 // import { InstagramLogo, InstagramMobileLogo } from "../../assets/constant";
-import {SocialsLogo,SocialsMobileLogo} from "../../assets/constant";
+import { SocialsLogo, SocialsMobileLogo } from "../../assets/constant";
 import { BiLogOut } from "react-icons/bi";
 import useLogout from "../../hooks/useLogout";
 import SidebarItems from "./SidebarItems";
@@ -20,9 +20,13 @@ const Sidebar = () => {
 			px={{ base: 2, md: 4 }}
 		>
 			<Flex direction={"column"} gap={10} w='full' height={"full"}>
-				<Link to={"/"} as={RouterLink} pl={2} display={{ base: "none", md: "block" }} cursor='pointer'>
-					<SocialsLogo />
-				</Link>
+				
+				<Text fontSize={40} pl={0.7} fontFamily={"Billbong"} ml={2} display={{base:"block",md:"none"}} color={"white.700"} >
+					S
+				</Text>
+				<Text fontSize={40} pl={0.7} display={{base:"none",md:"block"}}  fontFamily={"Billbong"} color={"white.700"} >
+					Socials
+				</Text>
 				<Link
 					to={"/"}
 					as={RouterLink}

@@ -9,6 +9,9 @@ const useUserProfileStore = create((set) => ({
 		set((state) => ({
 			userProfile: { ...state.userProfile, posts: [post.id, ...state.userProfile.posts] },
 		})),
+
+// [...state.userProfile.posts]-It ensures that all the existing posts are included in the new array.
+
 	deletePost: (postId) =>
 		set((state) => ({
 			userProfile: {

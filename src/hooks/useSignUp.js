@@ -17,8 +17,9 @@ const useSignUp = () => {
 
 	const showToast = useShowToast();
 
+	// we are usign this so as when we sign in it means someone is in our system 
 	const loginUser = useAuthStore(state => state.login)
-	// const logoutUser = useAuthStore(state => state.logout)
+	
 
 	const signup = async (inputs) => {
 		if (!inputs.email || !inputs.password || !inputs.username || !inputs.fullName) {
@@ -41,6 +42,9 @@ const useSignUp = () => {
 
 		try {
 			const newUser = await createUserWithEmailAndPassword(inputs.email, inputs.password);
+
+			console.log(newUser)
+
 			if (!newUser && error) {
 				showToast("Error", error.message, "error");
 				return;
