@@ -2,7 +2,7 @@
 [Socials](https://socials-rust.vercel.app/)
 
 
-I have created a nice social media web platform using React. 
+I have created a social media web platform using React. 
 
 ## Technologies Used
 
